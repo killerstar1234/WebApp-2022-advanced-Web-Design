@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel = 'stylesheet' href = '/style.css'>
+</head>
+<body>
+
+
+
+    <nav>
+        <h1>Login</h1>
+    </nav>        
+
+
+<div class = 'container mt-4'>
+    <div class = 'card'>
+
+    <div class="card-body">
+        <form action = '/auth/login' method="post">
+        
+            <div class = 'mb-3'>
+                <label for = 'emailInput' class = 'form-label'>Email: </label>
+                <input id="emailInput" placeholder="Type Your Email..." name = 'email' />
+            </div>
+            <div class = 'mb-3'>
+                <label for = 'nameInput' class = 'form-label'>Name:</label>
+                <input id="nameInput" placeholder="Type Your Name...." name = 'name' />
+            </div>
+            <div class = 'mb-3'>
+            <label for = 'passwordInput' class = 'form-label'>Password:</label>
+            <input id="passwordInput" placeholder="Type Your Password..." name = 'password' type = 'password'/>
+            </div>
+            
+
+            <button id = 'passwordInput' type = 'submit' class="btn btn-primary">Login</button>
+
+        </form>
+    </div>
+    </div>
+</div>
+
+
+
+
+
+
+</body>
+</html>
