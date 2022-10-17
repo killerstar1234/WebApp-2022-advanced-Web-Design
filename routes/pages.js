@@ -1,7 +1,12 @@
 const express = require('express');
 const router = express.Router();
+const { validateToken } = require('../JWT');
 
-router.get('/', (req, res) => {
+router.get('/', validateToken, (req, res) => {
+    res.render('profile');
+})
+
+router.get('/profile', validateToken, (req, res) => {
     res.render('profile');
 })
 
@@ -9,8 +14,12 @@ router.get('/login', (req, res) => {
     res.render('login');
 })
 
-router.get('/settings', (req, res) => {
-    res.send('<h1>Working On Settings</h1>')
+router.get('/register', (req, res) => {
+    res.render('register');
+})
+
+router.get('/settings', validateToken, (req, res) => {
+    res.render('settings')
 })
 
 module.exports = router;
