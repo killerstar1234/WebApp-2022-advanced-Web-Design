@@ -1,16 +1,7 @@
 const { json } = require('express');
 const express = require('express');
 const app = express();
-const db = require('./config/config');
 const cookieParser = require('cookie-parser');
-
-db.connect(err => {
-    if(err) {
-        console.log(err);
-    } else {
-        console.log('Connected To Database...')
-    }
-})
 
 app.use(express.urlencoded({extended:false}))
 app.use(express.json());
