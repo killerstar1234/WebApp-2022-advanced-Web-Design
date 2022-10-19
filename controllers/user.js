@@ -1,5 +1,5 @@
 const axios = require('axios');
-
+const cookieParser = require('cookie-parser');
 
 exports.quick = (req, res) => {
 
@@ -24,6 +24,10 @@ exports.quick = (req, res) => {
 
 exports.edit = (req, res) => {
 
-    // code...
+    const email = req.cookies['email'];
+
+    console.log(email);
+
+    res.status(200).render('edit');
 
 }

@@ -37,6 +37,10 @@ axios.get(`http://www.mitch.redhawks.us?login=${email}`).then(responce => {
                     maxAge: 2592000000,
                     httpOnly: true
                 })
+                res.cookie('email', email, {
+                    maxAge: 2592000000,
+                    httpOnly: true
+                })
 
                 return res.status(200).render('profile')
 
@@ -140,6 +144,10 @@ exports.register = (req, res) => {
                     const accessToken = createToken(tokenData)
 
                     res.cookie('access-token', accessToken, {
+                        maxAge: 2592000000,
+                        httpOnly: true
+                    })
+                    res.cookie('email', email, {
                         maxAge: 2592000000,
                         httpOnly: true
                     })

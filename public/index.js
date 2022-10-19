@@ -1,7 +1,5 @@
 $(document).ready(() => {
-    
-    $('body').append('<hr>')
-    
+        
     $('#findHelp').click(() => {
 
         $('#results').empty();
