@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>Help</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel = 'stylesheet' href = '/style.css'>
@@ -12,10 +12,10 @@
 <body>
 
     <nav>
-        <h1>Profile</h1>
+        <h1>Help</h1>
         <ul>
             <li>
-                <a href = '/settings'>Settings</a>
+                <a href = '/profile'>Profile</a>
             </li>
         </ul>
     </nav>
@@ -23,32 +23,20 @@
     
     <div class = 'container mt-4'>
 
-            <h3 class="mt-4">Get Help From NCHS staff and students!</h3>
-            <hr>
+    <h3>Pick witch catigory you need help with</h3>
 
-            <a class = 'mt-4' href = '/quick'>Find Quick Help</a>
+    <select id="select">
+        <option>Algreba1</option>
+        <option>A1G1</option>
+        <option>Geometry</option>
+        <option>Math</option>
+    </select>
 
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <div class = 'card mt-4 profileData'>
-                <div class = 'card-body'>
-                    <h3>Your Profile:</h3>
-                    <a class = 'mt-4' href = '/edit'>Edit Profile</a>
-                    <br>
-                    <br>
-                    {{#if profile}}
-                    <h4>{{profile}}</h4>
-                    {{/if}}
-                </div>
-            </div>
+    <button id = 'findHelp'>Find Help</button>
 
     </div>
 
-    
-    <div id="results" class="container mt-4">
+    <div id="results" class = 'container mt-4'>
 
     </div>
     

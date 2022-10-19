@@ -1,29 +1,33 @@
-// $(document).ready(() => {
+$(document).ready(() => {
     
-//     $('body').append('<hr>')
+    $('body').append('<hr>')
     
-//     $('#view').click(() => {
+    $('#findHelp').click(() => {
 
-//         $('#results').empty();
+        $('#results').empty();
 
-//         fetch('http://localhost:3000/api/listOfTeachers').then(data => {
-//             return data.json();
-//         }).then(res => {
+        const catigory = document.getElementById('select').value;
 
-//             res[0].forEach(obj => {
-                
-//                  $("#results").append(`<div id="${obj.teacherEmail}" ><h3>${obj.teacherName} - ${obj.teacherEmail}</h3></div>`);
+        fetch(`http://localhost:3000/user/quick?subject=${catigory.toLowerCase()}`).then(data => {
+            return data.json();
+        }).then(res => {
 
-//             })
+            if(res) {
 
-//             res[1].forEach(obj => {
-//                 $("div[id='"+obj.teacherEmail+"']").append(`<ul><li><p>${obj.subject}</p></li><ul>`)
-//             })
+                // Code Here
+                res.forEach(obj => {
+                    $('#results').append(`<p><b>${obj.firstName}</b> helps in <b>${obj.subject}</b>, contact - <b>${obj.email}</b></p>`)
+                })
+
+            } else {
+
+                $('#results').append('<h4>No One Was Found</h4>')
+
+            }
+
+        })
+
+    })
 
 
-//         })
-
-//     })
-
-
-// })
+})

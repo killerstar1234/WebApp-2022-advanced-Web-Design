@@ -22,4 +22,12 @@ router.get('/settings', validateToken, (req, res) => {
     res.render('settings')
 })
 
+router.get('/quick', validateToken, (req, res) => {
+    res.render('quick');
+})
+
+router.get('/edit', validateToken, (req, res) => {
+    res.render('edit');
+})
+
 module.exports = router;
