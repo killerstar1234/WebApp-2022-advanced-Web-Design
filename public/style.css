@@ -42,3 +42,16 @@ nav li a:hover {
 .logout:hover {
     color: yellow;
 }
+
+
+.userDescription {
+    padding: 10px;
+}
+
+.userDiv {
+    text-align: center;
+}
+
+.userForm {
+    text-align: center;
+}
