@@ -27,6 +27,7 @@ exports.edit = (req, res) => {
 
     const email = req.cookies['email'];
 
+<<<<<<< HEAD
     axios.get(`http://www.mitch.redhawks.us/?email=${email}`).then(results => {
         
 
@@ -47,5 +48,10 @@ exports.edit = (req, res) => {
         }
     })
 
+=======
+    console.log(email);
+
+    res.status(200).render('edit');
+>>>>>>> ea4af39564a6e37cf3509121baa6d48dbd1f1680
 
 }
