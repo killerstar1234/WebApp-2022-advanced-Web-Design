@@ -152,9 +152,6 @@ exports.register = (req, res) => {
                         httpOnly: true
                     })
 
-                    // Make the new empty subject/profile edit content
-                    // axios.get('url?email=email')
-
                     return res.status(200).render('profile', {
                         message: result.message
                     })

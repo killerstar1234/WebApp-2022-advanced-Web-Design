@@ -7,6 +7,4 @@ const { validateToken } = require('../JWT');
 
 router.get('/quick', userController.quick);
 
-router.get('/edit', userController.edit);
-
 module.exports = router;
