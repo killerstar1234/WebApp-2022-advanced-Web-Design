@@ -42,7 +42,7 @@ axios.get(`http://www.mitch.redhawks.us?login=${email}`).then(responce => {
                     httpOnly: true
                 })
 
-                return res.status(200).render('profile')
+                    return res.redirect('/profile');
 
             }
         
@@ -152,12 +152,7 @@ exports.register = (req, res) => {
                         httpOnly: true
                     })
 
-                    // Make the new empty subject/profile edit content
-                    // axios.get('url?email=email')
-
-                    return res.status(200).render('profile', {
-                        message: result.message
-                    })
+                    return res.redirect('/profile');
 
             }).catch(err => {
                 if(err) {
@@ -235,9 +230,8 @@ exports.register = (req, res) => {
 exports.logout = (req, res) => {
     const accessToken = req.cookies['access-token'];
     if(accessToken) {
-
-        res.status(200).render('login');        
-        return res.clearCookie('access-token');
+        res.clearCookie('access-token');       
+        return res.redirect('/login');
 
     } else {
         return res.status(400).render('login', {
