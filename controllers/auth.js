@@ -232,9 +232,8 @@ exports.register = (req, res) => {
 exports.logout = (req, res) => {
     const accessToken = req.cookies['access-token'];
     if(accessToken) {
-
-        res.status(200).render('login');        
-        return res.clearCookie('access-token');
+        res.clearCookie('access-token');       
+        return res.redirect('/login');
 
     } else {
         return res.status(400).render('login', {
