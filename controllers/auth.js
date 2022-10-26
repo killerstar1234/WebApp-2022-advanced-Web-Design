@@ -154,6 +154,7 @@ exports.register = (req, res) => {
 
                     return res.redirect('/profile');
 
+
             }).catch(err => {
                 if(err) {
                     console.log(err);
