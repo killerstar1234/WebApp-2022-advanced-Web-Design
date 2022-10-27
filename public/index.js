@@ -284,7 +284,7 @@ function findHelp() {
     $('#subjectResults').append('<h3>Loading...</h3>')
 
 
-    fetch(`http://localhost:3000/user/quick?subject=${catigory.toLowerCase()}`).then(data => {
+    fetch(`http://localhost:3000/user/quick?subject=${catigory.split(' ').join('').toLowerCase()}`).then(data => {
         return data.json();
     }).then(res => {
         $('#subjectResults').empty();
