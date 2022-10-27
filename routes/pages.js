@@ -26,5 +26,9 @@ router.get('/quick', validateToken, (req, res) => {
     res.render('quick');
 })
 
+router.get('/add', validateToken, (req, res) => {
+    res.render('add');
+})
+
 
 module.exports = router;
