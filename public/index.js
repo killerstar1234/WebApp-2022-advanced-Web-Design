@@ -1,6 +1,4 @@
-$(document).ready(() => {
-
-    $('#search').click(() => {
+function search() {
         $('#results').empty();
         const catigory = document.getElementById('select').value;
 
@@ -272,9 +270,9 @@ $(document).ready(() => {
         `)
     }
 
-    })
+    }
 
-})
+
 
 function findHelp() {
 

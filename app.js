@@ -16,6 +16,7 @@ app.use('/js', express.static('./public'));
 app.use('/', require('./routes/pages'))
 app.use('/auth', require('./routes/auth'));
 app.use('/user', require('./routes/user'))
+app.use('/add', require('./routes/add'));
 
 const PORT = process.env.PORT || 3000;
 

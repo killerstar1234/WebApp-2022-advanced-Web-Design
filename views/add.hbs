@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Help</title>
+    <title>Add</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel = 'stylesheet' href = '/style.css'>
 </head>
 <body>
-
+    
     <nav>
-        <h1>Help</h1>
+        <h1>Add Your input</h1>
         <ul>
             <li>
                 <a href = '/profile'>Profile</a>
@@ -20,34 +20,23 @@
         </ul>
     </nav>
 
-    
-    <div class = 'container mt-4'>
 
-    <h3>Pick witch category you need help with</h3>
+<center>
+    <div class = 'form-wrap'>
+        <h4 class="mt-4">Use the given username and password from the mannager to login</h4>
+        <hr>
 
-    <select id="select">
-      <option>Art</option>
-      <option>Buisness</option>
-      <option>Music</option>
-      <option>Physical Eduction</option>
-      <option>Communication Arts</option>
-      <option>Science</option>
-      <option>Social Studies</option>
-      <option>Tech and Engineering Education</option>
-    </select>
-    <button onclick="search()">Search</button>
-
+        <form method="POST" action = '/add/login'>
+            <input placeholder="Username..." name = 'username' class = 'mt-4' >
+            <br>
+            <br>
+            <input placeholder="Password..." name = 'password' class = 'mt-4' type = 'password' >
+            <br>
+            <br>
+            <button type = 'submit' class = 'mt-4'>Login</button>
+        </form>
     </div>
-
-    <div id="results" class = 'container mt-4'>
-
-
-    </div>
-
-    <div id="subjectResults" class = 'container mt-4'></div>
-
-    
-    <script src = '/js/index.js'></script>
+</center>
 
 </body>
 </html>

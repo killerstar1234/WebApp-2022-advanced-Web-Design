@@ -55,3 +55,7 @@ nav li a:hover {
 .userForm {
     text-align: center;
 }
+
+.form-wrap {
+    padding: 20px;
+}
