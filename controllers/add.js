@@ -65,7 +65,7 @@ exports.subject = (req, res) => {
 
     // Add This to the database...
 
-    
+    console.log(catigory);
 
     return res.json(true);
 
