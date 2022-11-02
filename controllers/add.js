@@ -33,7 +33,6 @@ exports.login = async (req, res) => {
                     })
                 } else {
     
-                    console.log('Sucksess')
                     return res.sendFile(path.join(__dirname, '../views/add.html'));
     
                 }
@@ -66,6 +65,16 @@ exports.subject = (req, res) => {
     // Add This to the database...
 
     console.log(catigory);
+
+    axios.get(`http://www.mitch.redhawks.us?teacherEmail=${email}&teacherName=${name}&cat=${catigory}`).then(results => {
+
+    console.log(results.data);
+
+    }).catch(err => {
+        if(err) {
+            console.log(err);
+        }
+    })
 
     return res.json(true);
 
