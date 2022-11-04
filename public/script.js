@@ -335,10 +335,14 @@ function findHelp() {
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         }
-        }).then(() => {
+        }).then(data => {
 
-            $('#results').empty();
-            $('#results').append('<h4>Added To Database</h4>')            
+          return data.json()
+
+        }).then(res => {
+          
+          $('#results').empty();
+          $('#results').append(`<h4>${res.message}</h4>`)  
 
         })
 

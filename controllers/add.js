@@ -68,14 +68,12 @@ exports.subject = (req, res) => {
 
     axios.get(`http://www.mitch.redhawks.us?teacherEmail=${email}&teacherName=${name}&cat=${catigory}`).then(results => {
 
-    console.log(results.data);
+        return res.json({"message": "Added to Database, Press Search button to add another subject to your profile!"})
 
     }).catch(err => {
         if(err) {
             console.log(err);
         }
     })
-
-    return res.json(true);
 
 }
