@@ -30,5 +30,9 @@ router.get('/add', validateToken, (req, res) => {
     res.render('add');
 })
 
+router.get('/error', validateToken, (req, res) => {
+    res.render('error');
+})
+
 
 module.exports = router;

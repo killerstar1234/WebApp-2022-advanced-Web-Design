@@ -64,7 +64,6 @@ exports.subject = (req, res) => {
 
     // Add This to the database...
 
-    console.log(catigory);
 
     axios.get(`http://www.mitch.redhawks.us?teacherEmail=${email}&teacherName=${name}&cat=${catigory}`).then(results => {
 
@@ -72,7 +71,7 @@ exports.subject = (req, res) => {
 
     }).catch(err => {
         if(err) {
-            console.log(err);
+            res.status(400).render('error');
         }
     })
 
