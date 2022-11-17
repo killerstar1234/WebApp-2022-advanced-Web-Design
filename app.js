@@ -17,6 +17,7 @@ app.use('/', require('./routes/pages'))
 app.use('/auth', require('./routes/auth'));
 app.use('/user', require('./routes/user'))
 app.use('/add', require('./routes/add'));
+app.use('/admin', require('./routes/admin'))
 
 const PORT = process.env.PORT || 3000;
 
