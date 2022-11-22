@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel = 'stylesheet' href = '/style.css'>
+</head>
+<body>
+    
+    <nav>
+        <h1>Admin</h1>
+        <ul>
+            <li>
+                <a href = '/profile'>Profile</a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <div class = 'container mt-4 '>
+
+        <h3>View Everyone And Pick who you want to be able to edit there profile</h3>
+
+<div class = 'left_contentlist'>
+    <div class = 'emailList mt-4 itemconfiguration' id="emailList">
+        {{#if data}}
+        
+            {{#each data}}
+                <p>{{this.email}}</p>
+            {{/each}}
+
+        {{/if}}
+    </div>
+</div>
+
+<div class = 'permsForm'>
+    <input placeholder="There Email..."/>
+    <button>Give Permissions</button>
+    https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group
+</div>
+
+</div>
+
+</body>
+</html>
