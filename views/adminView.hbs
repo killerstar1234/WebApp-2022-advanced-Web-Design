@@ -30,7 +30,7 @@
         {{#if data}}
         
             {{#each data}}
-                <p>{{this.email}}</p>
+                <div><label><input type = 'checkbox' class = 'emails' value = '1' name = '{{this.email}}'>{{this.email}}</label></div>
             {{/each}}
 
         {{/if}}
@@ -38,12 +38,12 @@
 </div>
 
 <div class = 'permsForm'>
-    <input placeholder="There Email..."/>
-    <button>Give Permissions</button>
-    https://stackoverflow.com/questions/9709209/html-select-only-one-checkbox-in-a-group
+    <button class = 'permBtn' onclick = 'givePerms()'>Give Permissions</button>
+    <button onclick = "takePerms()">Take Away Permissions</button>
 </div>
 
 </div>
 
+<script src = '/js/view.js'></script>
 </body>
 </html>

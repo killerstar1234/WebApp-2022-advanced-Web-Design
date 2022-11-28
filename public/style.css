@@ -66,6 +66,7 @@ nav li a:hover {
 		width:215px;
 		/* background-color:#CCC; */		
         overflow-y:auto;
+        overflow-x:scroll;
 		float:left;
 		position:relative;
 		margin-left:-5px;
@@ -77,6 +78,11 @@ padding:0 0 0 5px;
 position:relative;
 float:left;
 border-right: 1px #f8f7f3 solid;
-/* background-image:url(images/bubble.png); */
-/* background-color: black; */
+}
+
+.permBtn {
+
+    margin: 50px;
+    padding: 5px;
+
 }
