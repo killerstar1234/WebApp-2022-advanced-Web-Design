@@ -8,3 +8,12 @@ exports.view = (req, res) => {
         });
     })
 }
+
+exports.givePerms = (req, res) => {
+
+    const email = req.query.arr;
+
+    
+
+    return res.json({"test": true})
+}
