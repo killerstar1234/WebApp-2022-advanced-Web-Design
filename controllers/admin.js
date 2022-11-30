@@ -13,7 +13,26 @@ exports.givePerms = (req, res) => {
 
     const email = req.query.arr;
 
-    
+    axios.get(`http://www.mitch.redhawks.us/?user=${email}`).then(data => {
+        // We now have the user data, now make a request to make them have perms
+        let userData = data.data;
 
-    return res.json({"test": true})
+        axios.get(`http://www.mitch.redhawks.us/?permName=${userData.name}&permEmail=${userData.email}`).then(data => {
+
+            console.log(data);
+            return res.json({"test": true})
+
+        }).catch(err => {
+            if(err) {
+                console.log(err);
+            }
+        })
+
+    }).catch(err => {
+        if(err) {
+            console.log(err);
+            return res.json({"test": false})
+        }
+    })
+
 }
