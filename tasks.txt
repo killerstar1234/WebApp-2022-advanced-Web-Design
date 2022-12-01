@@ -1,0 +1,7 @@
+What I Made:
+    I just made it so the admin can add people to the teacher perm
+    I Made the JWT for the teacher Token
+
+What I need to make: 
+    When the Admin does make someone a teacher permision they need to get the token somehow, mabye the server does it automaticly or the person has to go to the route to get the cookie.
+    have to delte the cookie when admin deletes the person 

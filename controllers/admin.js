@@ -19,18 +19,21 @@ exports.givePerms = (req, res) => {
 
         axios.get(`http://www.mitch.redhawks.us/?permName=${userData.name}&permEmail=${userData.email}`).then(data => {
 
-            console.log(data);
-            return res.json({"test": true})
+            if(data) {
+                return res.json({"test": true})
+            } else {
+                return res.json({"test": false})
+            }
 
         }).catch(err => {
             if(err) {
-                console.log(err);
+                console.log('err');
             }
         })
 
     }).catch(err => {
         if(err) {
-            console.log(err);
+            console.log('err');
             return res.json({"test": false})
         }
     })
