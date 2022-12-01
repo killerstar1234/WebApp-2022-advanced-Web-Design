@@ -4,4 +4,7 @@ What I Made:
 
 What I need to make: 
     When the Admin does make someone a teacher permision they need to get the token somehow, mabye the server does it automaticly or the person has to go to the route to get the cookie.
-    have to delte the cookie when admin deletes the person 
+    When The person does have the teacher Token they need to be able to view to add there own input
+    have to delte the cookie when admin deletes the person
+    Have to add a admin cookie and set it manuly to the person  
+    
