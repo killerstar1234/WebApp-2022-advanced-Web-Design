@@ -229,14 +229,8 @@ exports.register = (req, res) => {
 }
 
 exports.logout = (req, res) => {
-    const accessToken = req.cookies['access-token'];
-    if(accessToken) {
-        res.clearCookie('access-token');       
+        res.clearCookie('access-token');
+        res.clearCookie('email');
+        res.clearCookie('perm-cookie');   
         return res.redirect('/login');
-
-    } else {
-        return res.status(400).render('login', {
-            message: 'Need To Have a account to view this'
-        })
-    }
 }

@@ -6,5 +6,7 @@ router.get('/view', adminController.view)
 
 router.get('/givePerms', adminController.givePerms)
 
+router.get('/checklist', adminController.checklist);
+
 
 module.exports = router;

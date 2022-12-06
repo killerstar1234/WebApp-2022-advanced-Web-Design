@@ -12,7 +12,7 @@
 <body>
     
     <nav>
-        <h1>Add Your input</h1>
+        <h1>Help Students</h1>
         <ul>
             <li>
                 <a href = '/profile'>Profile</a>
@@ -20,23 +20,23 @@
         </ul>
     </nav>
 
-
-<center>
-    <div class = 'form-wrap'>
-        <h4 class="mt-4">Use the given username and password from the mannager to login</h4>
-        <hr>
-
-        <form method="POST" action = '/add/login'>
-            <input placeholder="Username..." name = 'username' class = 'mt-4' >
-            <br>
-            <br>
-            <input placeholder="Password..." name = 'password' class = 'mt-4' type = 'password' >
-            <br>
-            <br>
-            <button type = 'submit' class = 'mt-4'>Login</button>
-        </form>
+    <div class = 'container'>
+    <div class = 'mt-4'>
+        <h4>Add to our Database to help students academically</h4>
     </div>
-</center>
+    <p>Choose a category that you have experince in and add it to the database with your email and name.</p>
+
+    <input placeholder="name" id="name">
+    <input placeholder="email" id="email">
+    <button id="preForm">Continue</button>
+
+    <div id="preDiv"></div>
+
+    </div>
+
+
+    <script src = '/js/script.js'></script>
+
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { validateToken } = require('../JWT');
+const { validateToken, validateTeacherToken } = require('../JWT');
 
 router.get('/', validateToken, (req, res) => {
     res.render('profile');
@@ -26,12 +26,16 @@ router.get('/quick', validateToken, (req, res) => {
     res.render('quick');
 })
 
-router.get('/add', validateToken, (req, res) => {
+router.get('/add', validateTeacherToken, (req, res) => {
     res.render('add');
 })
 
 router.get('/error', validateToken, (req, res) => {
     res.render('error');
+})
+
+router.get('/checklist', validateToken, (req, res) => {
+    res.render('checklist');
 })
 
 

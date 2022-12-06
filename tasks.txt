@@ -8,3 +8,11 @@ What I need to make:
     have to delte the cookie when admin deletes the person
     Have to add a admin cookie and set it manuly to the person  
     
+
+
+When they go to the add input route they already have a email from loging in so first check if they have a cookie of perm-token if not check there email in the database to see if they are in the perm table in the database
+
+2nd option - make a 1 day token and make it so the server has to check if they are in the teacher table in the databse so this would be easyer for the delete token(try this first)
+
+What I did dec 6th 
+    I just finnished that the admin could delte cookies

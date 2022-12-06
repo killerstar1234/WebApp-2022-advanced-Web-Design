@@ -1,4 +1,5 @@
 const {sign, verify} = require('jsonwebtoken');
+const axios = require('axios');
 
 /* User tokens */
 const createToken = (user) => {
@@ -33,31 +34,64 @@ const validateToken = (req, res, next) => {
 /* Teacher/Admin Tokens */
 
 const teacherToken = (teacher) => {
-    const accessToken = sign({name: teacher.name, email: user.email}, 'teacherPerm2026');
+    const accessToken = sign({name: teacher.name, email: teacher.email}, 'teacherPerm2026');
     return accessToken;
 }
 
 const validateTeacherToken = (req, res, next) => {
-    const accessToken = req.cookies['perm-cookie'];
+    const permCookie = req.cookies['perm-cookie'];
 
-    if(!accessToken) {
-        return res.status(400).render('profile', {
-            message: "Contact The Owner about Getting A Spot to teacher"
+    if(!permCookie) {
+        // If you dont have the cookie
+
+        const email = req.cookies['email'];
+
+
+        axios.get(`http://www.mitch.redhawks.us/?adminEmail=${email}`).then(results => {
+            const answer = results.data;
+            
+            if(answer) {
+                // create a token
+                // redirect to add
+                const accessToken = teacherToken(answer);
+
+                // Need To set this cookie so the can have access
+                res.cookie('perm-cookie', accessToken, {
+                    maxAge: 2592000000,
+                    httpOnly: true
+                })
+    
+    
+                return res.redirect('/add');
+            } else {
+                // send to profile
+                res.render('profile', {
+                    message: "You dont have access"
+                });
+            }
+    
         })
-    }
+    
+    
+    } else {
+
 
     try {
-        const validToken = verify(accessToken, 'teacherPerm2026');
+        // If you do try and varifiy it
+        const validToken = verify(permCookie, 'teacherPerm2026');
         if(validToken) {
             req.authenticated = true;
             return next();
         }
     } catch(err) {
-        return res.status(400).render('profile', {
-            message: "Invalid Token"
-        })
-    }
-
+        
+        if(err) {
+            res.render('profile', {
+                message: "You dont have access to this"
+            });
+        }
+}
+}
 }
 
 /* Teacher/Admin Tokens */

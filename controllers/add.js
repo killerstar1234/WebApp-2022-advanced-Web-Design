@@ -6,52 +6,15 @@ const bcrypt = require('bcryptjs');
 
 exports.login = async (req, res) => {
     
-    const { username, password } = req.body;
+    // check with the database, if it is correct send the file if not return the page there on
 
-    axios.get(`http://www.mitch.redhawks.us?login=${username}`).then(async results => {
-        // results here
-        if(results.data) {
-                
-        const data = results.data;
-
-            if(username != data.email) {
-                return res.render('add', {
-                    message: 'Username Is Incorrect'
-                })
-            } else if(data.email != data.name) {
-                return res.render('add', {
-                    message: 'There Was a Err'
-                })
-            } else {
-
-            const dbPass = results.data.password;
-            bcrypt.compare(password, dbPass).then(match => {
-                
-                if(!match) {
-                    res.status(400).render('add', {
-                        message: 'Incorrect Password'
-                    })
-                } else {
-    
-                    return res.sendFile(path.join(__dirname, '../views/add.html'));
-    
-                }
-            
-            })
-        }
+    axios.get(`http://www.mitch.redhawks.us?adminEmail=${req.body.email}`).then(results => {
         
-        } else {
-            return res.render('add', {
-                message: 'No User Found'
-            });
-        }
+    console.log(results);
+    
+})
 
-    }).catch(err => {
-        if(err) {
-            console.log('err');
-            return res.render('add');
-        }
-    })
+    return res.sendFile(path.join(__dirname, '../views/add.html'));
 
 
 }
