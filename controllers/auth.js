@@ -6,7 +6,7 @@ const axios = require('axios');
 
 exports.login = async (req, res) => {
 
-const { name, email, password } = req.body;
+const { email, password } = req.body;
 
 axios.get(`http://www.mitch.redhawks.us?login=${email}`).then(responce => {
 
@@ -14,12 +14,7 @@ axios.get(`http://www.mitch.redhawks.us?login=${email}`).then(responce => {
 
         let data = responce.data;
         
-        // We have the login database username, password, and email...
-        if(name !== data.name) {
-            return res.status(400).render('login', {
-                message: 'Name Does not match Login'
-            })
-        } else {
+
 
         const dbPass = data.password;
         bcrypt.compare(password, dbPass).then(match => {
@@ -48,7 +43,6 @@ axios.get(`http://www.mitch.redhawks.us?login=${email}`).then(responce => {
         
         })
 
-        }
 
 
     } else {

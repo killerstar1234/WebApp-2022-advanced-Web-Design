@@ -4,7 +4,6 @@ const cookieParser = require('cookie-parser');
 exports.quick = (req, res) => {
 
     const subject = req.query.subject;
-    console.log(subject);
 
     axios.get(`http://www.mitch.redhawks.us/?subject=${subject}`).then(results => {
 

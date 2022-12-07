@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { validateToken, validateTeacherToken } = require('../JWT');
+const path = require('path');
 
 router.get('/', validateToken, (req, res) => {
     res.render('profile');
@@ -27,7 +28,7 @@ router.get('/quick', validateToken, (req, res) => {
 })
 
 router.get('/add', validateTeacherToken, (req, res) => {
-    res.render('add');
+    return res.sendFile(path.join(__dirname, '../views/add.html'));
 })
 
 router.get('/error', validateToken, (req, res) => {

@@ -1,6 +1,7 @@
 const axios = require('axios');
 const { request } = require('express');
 const { teacherToken } = require("../JWT");
+const path = require('path');
 
 
 exports.view = (req, res) => {
@@ -43,39 +44,3 @@ exports.givePerms = (req, res) => {
 
 }
 
-exports.checklist = (req, res) => {
-
-    // make a req to the databse to see if they are in the teacher list by getting there email from the email token, then compare it to the database email from teacher
-    // if it is there create a token for them
-
-
-    const email = req.cookies['email'];
-
-
-    axios.get(`http://www.mitch.redhawks.us/?adminEmail=${email}`).then(results => {
-        const answer = results.data;
-        
-        if(answer) {
-            // create a token
-            // redirect to add
-            const accessToken = teacherToken(answer);
-
-            res.cookie('perm-cookie', accessToken, {
-                maxAge: 2592000000,
-                httpOnly: true
-            })
-
-
-            res.redirect('/add');
-        } else {
-            // send to profile
-            res.redirect('/profile');
-        }
-
-    })
-
-
-    res.render('checklist');
-
-
-}
