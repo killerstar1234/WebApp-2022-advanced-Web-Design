@@ -22,10 +22,9 @@
 
 
     <div class = 'container mt-4 '>
-
-        <h3>View Everyone And Pick who you want to be able to edit there profile</h3>
-
+        <br>
 <div class = 'left_contentlist'>
+    <h5>Give Permissions</h5>
     <div class = 'emailList mt-4 itemconfiguration' id="emailList">
         {{#if data}}
         
@@ -35,14 +34,23 @@
 
         {{/if}}
     </div>
-</div>
-
-<div class = 'permsForm'>
     <button class = 'permBtn' onclick = 'givePerms()'>Give Permissions</button>
-    <button onclick = "takePerms()">Take Away Permissions</button>
 </div>
 
-<p id="res"></p>
+<div class = 'right_contentlist'>
+    <h5>Take Permissions</h5>
+    <div class = 'teacherList mt-4 itemconfiguration' id = 'teacherList'>
+        {{#if teachers}}
+            {{#each teachers}}
+            <div><label><input type = 'checkbox' class = 'teachers' value="{{this.email}}" name = 'teacher'>{{this.email}}</label></div>
+            {{/each}}
+        {{/if}}
+    </div>
+    <button onclick = "takePerms()" class = 'permBtn'>Take Away Permissions</button>
+</div>
+
+<center><h5>To See Changes refresh the page</h5><br><p id="res"></p></b></center>
+
 
 </div>
 

@@ -39,59 +39,31 @@ const teacherToken = (teacher) => {
 }
 
 const validateTeacherToken = (req, res, next) => {
-    const permCookie = req.cookies['perm-cookie'];
 
-    if(!permCookie) {
-        // If you dont have the cookie
-
-        const email = req.cookies['email'];
+    const email = req.cookies['email'];
 
 
         axios.get(`http://www.mitch.redhawks.us/?adminEmail=${email}`).then(results => {
             const answer = results.data;
             
             if(answer) {
-                // create a token
-                // redirect to add
-                const accessToken = teacherToken(answer);
-
-                // Need To set this cookie so the can have access
-                res.cookie('perm-cookie', accessToken, {
-                    maxAge: 2592000000,
-                    httpOnly: true
-                })
-    
-    
-                return res.redirect('/add');
+                req.authenticated = true;
+                return next();
             } else {
                 // send to profile
-                res.render('profile', {
+                return res.status(400).render('profile', {
                     message: "You dont have access"
                 });
             }
     
+        }).catch(err => {
+            if(err) {
+                return res.status(400).render('profile', {
+                    message: "Try to Log out and Log back in"
+                })
+            }
         })
     
-    
-    } else {
-
-
-    try {
-        // If you do try and varifiy it
-        const validToken = verify(permCookie, 'teacherPerm2026');
-        if(validToken) {
-            req.authenticated = true;
-            return next();
-        }
-    } catch(err) {
-        
-        if(err) {
-            res.render('profile', {
-                message: "You dont have access to this"
-            });
-        }
-}
-}
 }
 
 /* Teacher/Admin Tokens */

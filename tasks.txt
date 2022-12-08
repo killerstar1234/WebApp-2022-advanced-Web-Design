@@ -20,3 +20,6 @@ What I did dec 6th
 Dec 7th 
     made it so you dont have to type name in email... made it so server does not give the teacher a cookie bc it would be hard to delte it, it just checks everytime they go to that route
     I have to now make it so the main person can delte whoever they want and I should make it return the people that are in the teacher database 
+
+Dec 8th
+    

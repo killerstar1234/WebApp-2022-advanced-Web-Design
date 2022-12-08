@@ -86,3 +86,12 @@ border-right: 1px #f8f7f3 solid;
     padding: 5px;
 
 }
+
+.right_contentlist{
+    width:215px;
+    float:right;
+    padding:0 0 0 5px;
+    position:relative;
+    float:right;
+    border-right: 1px #f8f7f3 solid;
+    }
